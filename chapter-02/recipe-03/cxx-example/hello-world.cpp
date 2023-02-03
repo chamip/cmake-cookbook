@@ -1,3 +1,10 @@
+/*
+ * @Author: chamip
+ * @Date: 2023-02-02 11:50:41
+ * @LastEditTime: 2023-02-03 14:36:32
+ * @LastEditors: chamip
+ * @FilePath: /cmake-cookbook/chapter-02/recipe-03/cxx-example/hello-world.cpp
+ */
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -16,6 +23,8 @@ std::string say_hello() {
   return std::string("Hello PGI compiler!");
 #elif IS_XL_CXX_COMPILER
   return std::string("Hello XL compiler!");
+#elif IS_AppleClang_CXX_COMPILER
+  return std::string("Hello AppleClang compiler!");
 #else
   return std::string("Hello unknown compiler - have we met before?");
 #endif

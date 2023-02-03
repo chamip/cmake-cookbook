@@ -8,6 +8,7 @@ project(recipe-03 LANGUAGES CXX)
 add_executable(hello-world hello-world.cpp)
 
 target_compile_definitions(hello-world PUBLIC "COMPILER_NAME=\"${CMAKE_CXX_COMPILER_ID}\"")
+message(STATUS "So the CMAKE_CXX_COMPILE_ID is: " ${CMAKE_CXX_COMPILER_ID})
 
 # let the preprocessor know about the compiler vendor
 if(CMAKE_CXX_COMPILER_ID MATCHES Intel)
@@ -21,5 +22,8 @@ if(CMAKE_CXX_COMPILER_ID MATCHES PGI)
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES XL)
   target_compile_definitions(hello-world PUBLIC "IS_XL_CXX_COMPILER")
+endif()
+if(CMAKE_CXX_COMPILER_ID MATCHES AppleClang)
+  target_compile_definitions(hello-world PUBLIC "IS_AppleClang_CXX_COMPILER")
 endif()
 # etc ...
